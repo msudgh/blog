@@ -1,0 +1,17 @@
+baseURL = "https://blog.msudgh.now.sh/"
+languageCode = "en-us"
+title = "Masoud Ghorbani"
+theme = "whitepaper"
+summaryLength = 20
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+disqusShortname = "mcrunix"
+
+
+[permalinks]
+  posts = "/:year/:month/:title/"
+
+[params]
+  author = "Masoud Ghorbani"
+  description = "I write software. Occasionally, I will build things to learn and use."
+  customDateFormat = "January 2, 2006"

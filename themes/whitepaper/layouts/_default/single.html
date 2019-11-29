@@ -1,0 +1,35 @@
+{{- define "main" -}}
+<article class="post single" itemscope itemtype="http://schema.org/Article">
+  <header>
+    <h1>{{ .Title | markdownify }}</h1>
+  </header>
+  <ul class="meta">
+    <li>
+      {{ $customDateFormat := "January 2, 2006" }}
+      {{ with .Site.Params.customDateFormat }}
+      {{ $customDateFormat = . }}
+      {{ end }}
+
+      {{ if (ne .Params.Type "page") }}
+      <time itemprop="datePublished" class="mono publishedAt"
+        datetime="{{ .PublishDate.Format $customDateFormat }}">{{ .PublishDate.Format $customDateFormat }}</time>
+      {{ end }}
+    </li>
+  </ul>
+  <div class="inner">
+    {{ .Content }}
+  </div>
+  {{ if (ne .Params.Type "page") }}
+  <ul class="pagination">
+    {{if .PrevPage}}<li><a href="{{.PrevPage.Permalink}}" rel="prev" target="_blank">← {{.PrevPage.Title}}</a></li>
+    {{with .Next}}<li><a href="{{.Permalink}}" rel="next" target="_blank">{{.Title}} →</a></li>{{end}}
+    {{end}}
+  </ul>
+  <hr />
+  <div class="comments">
+    {{ template "_internal/disqus.html" . }}
+  </div>
+  {{end}}
+</article>
+
+{{- end -}}
