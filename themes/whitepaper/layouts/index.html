@@ -1,0 +1,24 @@
+{{- define "main" -}}
+
+{{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{range $pages.ByPublishDate.Reverse }}
+<article class="post" itemscope itemtype="http://schema.org/Article">
+  <header>
+    <h1><a href="{{ .Permalink }}" target="_blank" itemprop="name">{{ .Title | markdownify }}</a></h1>
+    <!-- <div class="sep">.</div> -->
+  </header>
+  <div class="meta">
+    {{ $customDateFormat := "January 2, 2006" }}
+    {{ with .Site.Params.customDateFormat }}
+    {{ $customDateFormat = . }}
+    {{ end }}
+    <time itemprop="datePublished" class="mono publishedAt"
+      datetime="{{ .PublishDate.Format $customDateFormat }}">{{ .PublishDate.Format $customDateFormat }}</time>
+  </div>
+  <div class="description">
+    {{ .Summary }}
+  </div>
+</article>
+{{ end }}
+
+{{- end -}}

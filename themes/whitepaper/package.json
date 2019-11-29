@@ -1,0 +1,47 @@
+{
+  "name": "whitepaper",
+  "version": "0.1.0",
+  "description": "whitepaper's theme for hugo",
+  "main": "static/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "css-loader": "^3.2.0",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.3",
+    "node-sass": "^4.13.0",
+    "prettier": "^1.19.1",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "build:watch": "webpack --mode production --watch",
+    "formatter": "prettier --write --config .prettierrc \"src/**/*.{scss,ts,html}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msudgh/blog.git"
+  },
+  "author": "Masoud Ghorbani <msud.ghorbani@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/msudgh/blog/issues"
+  },
+  "homepage": "https://github.com/msudgh/blog#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src": [
+      "npm run formatter",
+      "git add"
+    ]
+  }
+}
