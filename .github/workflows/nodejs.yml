@@ -19,9 +19,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
       run: |
-        npm ci
+        cd themes/whitepaper
+        npm i
         npm run build --if-present
-      env:
-        CI: true
     - name: Hugo Actions
       uses: srt32/hugo-action@v0.0.3
