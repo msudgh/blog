@@ -6,7 +6,7 @@ summaryLength = 20
 pygmentsUseClasses = true
 pygmentsCodeFences = true
 disqusShortname = "mcrunix"
-
+googleAnalytics = "UA-109595753-1"
 
 [permalinks]
   posts = "/:year/:month/:title/"
