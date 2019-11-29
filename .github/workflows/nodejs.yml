@@ -13,6 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - uses: actions/checkout@master
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -26,7 +27,14 @@ jobs:
       uses: peaceiris/actions-hugo@v2
       with:
         hugo-version: '0.59.1'
-        # extended: true
-
     - name: Build
       run: hugo --minify
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Build new changes" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
