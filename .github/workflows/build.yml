@@ -28,8 +28,6 @@ jobs:
           hugo-version: "0.59.1"
       - name: Build
         run: hugo --minify
-      - name: copy nbpersian
-        run: cp -r data/nbpersian public
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
