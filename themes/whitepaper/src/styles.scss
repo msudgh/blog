@@ -88,6 +88,7 @@ a {
   ul {
     list-style: none;
     display: flex;
+    flex-flow: row wrap;
     li {
       &:not(:last-child) {
         margin-right: 10px;
@@ -343,6 +344,27 @@ footer {
     }
   }
 }
+
+@media (max-width:480px)  {
+  .wrap {
+    padding: 20px 20px 50px;
+  }
+  .content {
+    .post {
+      &.single {
+        .inner {
+          ul, ol {
+            li {
+              list-style-position: inside;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width:480px)  { /* smartphones, Android phones, landscape iPhone */ }
+
 @media screen and (max-width: 950px) {
   .sidebar {
     position: relative;
