@@ -12,8 +12,8 @@
     {{ with .Site.Params.customDateFormat }}
     {{ $customDateFormat = . }}
     {{ end }}
-    <time itemprop="datePublished" class="mono publishedAt"
-      datetime="{{ .PublishDate.Format $customDateFormat }}">{{ .PublishDate.Format $customDateFormat }}</time>
+    <time itemprop="datePublished" class="publishedAt"
+      datetime="{{ .Lastmod.Format $customDateFormat }}">{{ .Lastmod.Format $customDateFormat }}</time>
   </div>
   <div class="description">
     {{ .Summary }}
