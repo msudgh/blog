@@ -1,0 +1,4 @@
+<figure class="image {{ if eq (.Get "gif") "true" }}gif{{end}}">
+  <img src="{{ .Get "src" }}" alt="{{ .Get "caption" }}" />
+  <figcaption class="note">{{ .Get "caption" }}</figcaption>
+</figure>
